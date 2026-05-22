@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  
+  <!-- SEO Meta Tags -->
+  <title>Dhanuja Balasooriya | Full-Stack Developer Portfolio</title>
+  <meta name="description" content="Dhanuja Balasooriya - Full-Stack Developer specializing in React, Node.js, and modern web applications. View my portfolio of 10+ projects including Leo Club SLTC website, BlackWood Estate hotel booking system, and attendance management systems.">
+  <meta name="keywords" content="Full-Stack Developer, React Developer, Node.js, Portfolio, Web Developer Sri Lanka, Dhanuja Balasooriya, Frontend Developer, MERN Stack">
+  <meta name="author" content="Dhanuja Balasooriya">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Dhanuja Balasooriya | Full-Stack Developer Portfolio">
+  <meta property="og:description" content="Building fast, scalable, and beautiful web experiences. View my featured projects and services.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dhanuja-portfolio.vercel.app">
+  <meta property="og:image" content="https://dhanuja-portfolio.vercel.app/images/og-image.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dhanuja Balasooriya | Full-Stack Developer">
+  <meta name="twitter:description" content="Full-Stack Developer specializing in React, Node.js, and modern web applications.">
+  <meta name="twitter:image" content="https://dhanuja-portfolio.vercel.app/images/twitter-image.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://dhanuja-portfolio.vercel.app">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+  
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #FFFFFF;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Animated Gradient Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: radial-gradient(circle at 20% 30%, #0A0A0F, #050508);
+    }
+    
+    .gradient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(125deg, 
+        rgba(79, 70, 229, 0.15) 0%, 
+        rgba(168, 85, 247, 0.1) 25%, 
+        rgba(236, 72, 153, 0.05) 50%,
+        rgba(79, 70, 229, 0.1) 75%,
+        rgba(168, 85, 247, 0.15) 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    /* Floating particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .particle {
+      position: absolute;
+      background: rgba(168, 85, 247, 0.3);
+      border-radius: 50%;
+      animation: floatParticle linear infinite;
+    }
+    
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% {
+        transform: translateY(-20vh) translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1A1A24; }
+    ::-webkit-scrollbar-thumb { background: #4F46E5; border-radius: 10px; }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Glassmorphic Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(10, 10, 15, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo a {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #FFFFFF, #A855F7);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #FFFFFF;
+      opacity: 0.85;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      opacity: 1;
+      color: #C084FC;
+    }
+
+    .section {
+      padding: 4rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .section:last-of-type { border-bottom: none; }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, #FFFFFF, #C084FC);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-content { flex: 1.2; min-width: 280px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(168,85,247,0.2);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(168,85,247,0.4);
+      margin-bottom: 1.2rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .hero-role {
+      font-size: 1.2rem;
+      color: #C084FC;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 1.5rem;
+      max-width: 500px;
+    }
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
+      text-decoration: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(105deg, #4F46E5, #A855F7);
+      color: white;
+      box-shadow: 0 8px 20px rgba(79,70,229,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(79,70,229,0.5); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: white;
+      background: transparent;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+    
+    /* CV Download Button - White text */
+    .btn-cv {
+      background: rgba(168,85,247,0.15);
+      border: 1.5px solid #C084FC;
+      color: #FFFFFF;
+    }
+    .btn-cv:hover { background: rgba(168,85,247,0.3); transform: translateY(-3px); color: #FFFFFF; }
+    
+    .hero-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .stat-item h3 { font-size: 1.5rem; font-weight: 800; color: #C084FC; }
+    .stat-item p { font-size: 0.75rem; opacity: 0.7; }
+    
+    /* Profile Image Circle */
+    .hero-visual { 
+      flex: 0.9; 
+      display: flex; 
+      justify-content: center; 
+      position: relative; 
+      min-width: 240px;
+    }
+    .profile-circle {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(168,85,247,0.3), rgba(79,70,229,0.1));
+      padding: 6px;
+      animation: float 6s ease-in-out infinite;
+      box-shadow: 0 20px 35px -12px rgba(168,85,247,0.3);
+      border: 2px solid rgba(168,85,247,0.5);
+    }
+    .profile-circle img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* About Grid */
+    .about-grid {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .about-text { flex: 1.5; min-width: 260px; }
+    .about-text p { margin-bottom: 1rem; opacity: 0.9; font-size: 0.95rem; }
+    .about-card { flex: 1; background: rgba(20,20,30,0.5); backdrop-filter: blur(8px); border-radius: 1.5rem; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.1); min-width: 240px; }
+    .about-card h3 { margin-bottom: 1rem; color: #C084FC; font-size: 1.2rem; }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: rgba(18, 18, 26, 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .project-card:hover { transform: translateY(-5px); border-color: rgba(168,85,247,0.5); }
+    .project-img {
+      height: 200px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #2D2A4A, #1A1A2E);
+    }
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .project-card:hover .project-img img { transform: scale(1.05); }
+    .project-info { padding: 1.2rem; }
+    .project-info h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .project-info p { font-size: 0.85rem; opacity: 0.85; }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.8rem 0;
+    }
+    .tech-badge {
+      background: rgba(168,85,247,0.2);
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.65rem;
+    }
+    .project-links { display: flex; gap: 1rem; margin-top: 0.8rem; flex-wrap: wrap; }
+    .project-links a { color: #C084FC; text-decoration: none; font-size: 0.85rem; transition: 0.2s; }
+    .project-links a:hover { color: #FFFFFF; }
+
+    /* Services */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: rgba(22,22,32,0.5);
+      backdrop-filter: blur(8px);
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: 0.3s;
+    }
+    .service-card:hover { background: rgba(168,85,247,0.1); transform: translateY(-4px); }
+    .service-card i { font-size: 2rem; color: #C084FC; margin-bottom: 0.8rem; }
+    .service-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+    /* Skills */
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .skill-category {
+      background: rgba(15,15,22,0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      flex: 1;
+      min-width: 220px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .skill-category h3 { font-size: 1.2rem; margin-bottom: 1rem; }
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+    .skill-tag {
+      background: rgba(168,85,247,0.2);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.8rem;
+      transition: 0.2s;
+    }
+    .skill-tag:hover { background: rgba(168,85,247,0.4); transform: scale(1.02); }
+
+    /* Contact Section */
+    .contact-simple {
+      display: flex;
+      justify-content: center;
+    }
+    .contact-card {
+      background: rgba(20, 20, 30, 0.5);
+      backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .contact-card h3 { font-size: 1.6rem; margin-bottom: 0.8rem; color: #C084FC; }
+    .contact-detail {
+      margin: 1.2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      font-size: 1rem;
+      flex-wrap: wrap;
+      word-break: break-all;
+    }
+    .contact-detail i { font-size: 1.3rem; color: #C084FC; width: 35px; }
+    .contact-link {
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: 0.2s;
+      padding: 0.2rem 0.5rem;
+      border-radius: 30px;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+    .contact-link:hover { color: #C084FC; background: rgba(168,85,247,0.15); transform: scale(1.02); }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .social-icon {
+      background: rgba(255,255,255,0.08);
+      padding: 0.6rem 1.2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      color: white;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+    }
+    .social-icon:hover { background: rgba(168,85,247,0.3); transform: translateY(-2px); color: white; }
+    .contact-note {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+    footer { text-align: center; padding: 1.5rem; opacity: 0.7; font-size: 0.8rem; }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #4F46E5, #A855F7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      z-index: 99;
+      box-shadow: 0 4px 15px rgba(79,70,229,0.4);
+    }
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover { transform: translateY(-3px); }
+    .back-to-top i { color: white; font-size: 1.2rem; }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .hero-content h1 { font-size: 2rem; }
+      .profile-circle { width: 200px; height: 200px; }
+      .nav-links { gap: 1rem; }
+      .section { padding: 3rem 0; }
+      .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Animated Gradient Background -->
+<div class="gradient-bg"></div>
+<div class="particles" id="particles"></div>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo"><a href="#">✦ Dhanuja</a></div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HOME / HERO SECTION -->
+  <section id="home" class="section">
+    <div class="container hero">
+      <div class="hero-content">
+        <span class="hero-badge"><i class="fas fa-code"></i> Available for work</span>
+        <h1>Dhanuja Balasooriya</h1>
+        <div class="hero-role">Cyber Security Undergradute | Frontend Developer</div>
+        <p class="hero-desc">Building fast, scalable, and beautiful web experiences that solve real problems. Let's turn your idea into reality.</p>
+        <div class="btn-group">
+          <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-down"></i> View Projects</a>
+          <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Hire Me</a>
+          <button id="downloadCVBtn" class="btn btn-cv"><i class="fas fa-download"></i> Download CV</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item"><h3>10+</h3><p>Projects Completed</p></div>
+          <div class="stat-item"><h3>5+</h3><p>Happy Clients</p></div>
+          <div class="stat-item"><h3>2+</h3><p>Years Experience</p></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="profile-circle">
+          <img src="images/dhanuja.jpg" alt="Dhanuja Balasooriya Profile Picture">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME PAGE -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>👋 I'm Dhanuja Balasooriya, a passionate full-stack developer with 2+ years of experience turning complex ideas into intuitive web applications. I specialize in React, Node.js, and modern frontend architectures.</p>
+          <p>🚀 What makes me different? I don't just write code — I craft digital experiences. Every project gets pixel-perfect attention, performance optimization, and clean, maintainable code. My goal is to help startups and businesses establish a powerful online presence.</p>
+          <p>🎯 My goal: To build meaningful products that users love and that drive real business results. I believe in transparent communication, meeting deadlines, and exceeding expectations.</p>
+          <p>💡 Outside coding, I'm a chess enthusiast, open-source contributor, and I mentor aspiring developers. My work ethic is rooted in discipline, curiosity, and continuous improvement.</p>
+        </div>
+        <div class="about-card">
+          <h3><i class="fas fa-user-astronaut"></i> Personal touch</h3>
+          <p>📍 Based in Sri Lanka (Remote worldwide)</p>
+          <p>⚡ Discipline: Clean code + daily learning</p>
+          <p>🎧 Work vibe: Lo-fi & coffee</p>
+          <p>📚 Always exploring Web3 & AI tools</p>
+          <hr style="margin: 1rem 0; border-color: rgba(255,255,255,0.1);">
+          <p><i class="fas fa-quote-left"></i> "Design is not just what it looks like, but how it works."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/project 1.png" alt="Leo Club Of SLTC Official Website">
+          </div>
+          <div class="project-info">
+            <h3>Leo Club Of SLTC Official Website</h3>
+            <p>Official website to publish Projects, Magazines, Meet Members and showcase Activities.</p>
+            <div class="project-tech">
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Firebase</span>
+              <span class="tech-badge">Tailwind</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://leoclub-sltc.github.io/"><i class="fas fa-external-link-alt"></i> Live Website</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/project 2.png" alt="BlackWood Estate Hotel Website">
+          </div>
+          <div class="project-info">
+            <h3>BlackWood Estate</h3>
+            <p>Hotel website where visitors can make reservations online. First international project.</p>
+            <div class="project-tech">
+              <span class="tech-badge">Next.js</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-netlify"></i> Netlify</a>
+              <a href="https://blackwood-estate-demo.netlify.app/"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/project 3.png" alt="Attendance System for Leo Club">
+          </div>
+          <div class="project-info">
+            <h3>Attendance System for Leo Club Of SLTC</h3>
+            <p>System for General Meetings and Board Meetings. Updates all Member details efficiently.</p>
+            <div class="project-tech">
+              <span class="tech-badge">HTML</span>
+              <span class="tech-badge">CSS</span>
+              <span class="tech-badge">React</span>
+            </div>
+            <div class="project-links">
+              <a href="#"><i class="fab fa-netlify"></i> Netlify</a>
+              <a href="https://sltcleoclubattendance.netlify.app/"><i class="fas fa-external-link-alt"></i> Live Website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PAGE -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title">Services I Offer</h2>
+      <div class="service-grid">
+        <div class="service-card"><i class="fas fa-laptop-code"></i><h3>Web Development</h3><p>Custom websites, SPAs, and full-stack web apps with modern frameworks.</p></div>
+        <div class="service-card"><i class="fas fa-mobile-alt"></i><h3>Responsive Design</h3><p>Pixel-perfect, mobile-first interfaces that work on all devices.</p></div>
+        <div class="service-card"><i class="fas fa-rocket"></i><h3>Performance Optimization</h3><p>Speed audits, SEO improvements, and Core Web Vitals optimization.</p></div>
+        <div class="service-card"><i class="fas fa-code-branch"></i><h3>Code Review & Mentorship</h3><p>Clean code reviews, best practices, and technical guidance.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS PAGE -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-wrapper">
+        <div class="skill-category">
+          <h3><i class="fab fa-react"></i> Frontend</h3>
+          <div class="skill-items">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript (ES6+)</span>
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">Bootstrap</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-tools"></i> Tools & Workflow</h3>
+          <div class="skill-items">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">Vercel / Netlify</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-database"></i> Backend & DB</h3>
+          <div class="skill-items">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">REST APIs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section">
+    <div class="container contact-simple">
+      <div class="contact-card">
+        <h3><i class="fas fa-hand-peace"></i> Let's Connect</h3>
+        <p style="margin-bottom: 1.2rem; opacity: 0.8;">Reach out directly — I'm just a message away!</p>
+        
+        <div class="contact-detail">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:dhanujabalasooriya28@gmail.com" class="contact-link">dhanujabalasooriya28@gmail.com</a>
+        </div>
+        
+        <div class="contact-detail">
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://wa.me/94719279425" target="_blank" class="contact-link">+94 71 927 9425 (WhatsApp)</a>
+        </div>
+        
+        <div class="contact-detail">
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:+94719279425" class="contact-link">+94 71 927 9425</a>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://github.com/Dhanuja123638" target="_blank" class="social-icon"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/dhanujabalasooriya" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        </div>
+        
+        <div class="contact-note">
+          <i class="fas fa-clock"></i> Response within 24 hours — Let's build something great!
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Dhanuja Balasooriya — Built with modern web standards. Fully responsive for all devices.</p>
+</footer>
+
+<!-- Back to Top Button -->
+<div class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+  // Active nav highlight + smooth scroll
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section');
+
+  function removeActive() { navLinks.forEach(link => link.classList.remove('active')); }
+  function setActiveOnScroll() {
+    let current = '';
+    const scrollPos = window.scrollY + 120;
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+      if (scrollPos >= top && scrollPos < bottom) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href').substring(1);
+      if (href === current) link.classList.add('active');
+      else link.classList.remove('active');
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        removeActive();
+        this.classList.add('active');
+      }
+    });
+  });
+
+  window.addEventListener('scroll', setActiveOnScroll);
+  window.addEventListener('DOMContentLoaded', setActiveOnScroll);
+
+  // Back to Top Button
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // CV Download Function - Downloads local CV file from your portfolio folder
+  const downloadBtn = document.getElementById('downloadCVBtn');
+  downloadBtn.addEventListener('click', function() {
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    // Point to your CV file in the same folder as index.html
+    // Change this filename to match your actual CV file name
+    link.href = 'Dhanuja_Balasooriya_CV.pdf';
+    link.download = 'Dhanuja_Balasooriya_CV.pdf';
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+
+  // Create Floating Particles
+  function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      const size = Math.random() * 6 + 2;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDuration = Math.random() * 15 + 8 + 's';
+      particle.style.animationDelay = Math.random() * 10 + 's';
+      particle.style.background = `rgba(168, 85, 247, ${Math.random() * 0.3 + 0.1})`;
+      particlesContainer.appendChild(particle);
+    }
+  }
+  
+  createParticles();
+</script>
+</body>
+</html>
